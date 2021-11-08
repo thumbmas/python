@@ -1,5 +1,10 @@
 
 
+def print_grid(arr):
+    for i in range(9):
+        for j in range(9):
+            print ( arr[i][j], end=" "),
+        print (" ")
 
 grid = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
         [5, 2, 0, 0, 0, 0, 0, 0, 0],
@@ -11,4 +16,8 @@ grid = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 7, 4],
         [0, 0, 5, 2, 0, 6, 3, 0, 0]]
 
-print(grid)
+print_grid(grid)
+
+
+
+
