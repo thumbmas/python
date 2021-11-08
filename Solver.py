@@ -17,8 +17,8 @@ grid = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
 
 l = [8, 8]
 num = 9
-row = l[0]
-col = l[1]
+#row = l[0]
+#col = l[1]
 #print_grid(grid)
 
 #def checkbox():
@@ -46,10 +46,38 @@ def check_if_number_in_box(arr, row, col, num):
     return False
 
 
+def findemptylocation(arr, l):
+    for i in range(9):
+        for j in range(9):
+            if arr[i][j] == 0:
+                l[0] = i
+                l[1] = j
+                return True
+    return False
+
 def check_if_number_fits(grid, num, row, col):
     return (not check_if_number_in_box(grid, row - row%3, col - col %3, num) 
-    and not check_if_number_in_column(grid,col,num) 
-    and not check_if_number_in_row(grid,row,num))
+            and not check_if_number_in_row(grid, row, num)
+            and not check_if_number_in_column(grid,col,num))
 
-print(check_if_number_fits(grid,num,row,col))
+#print(check_if_number_fits(grid,num,row,col))
 #print([print(i) for i in range(9)])
+
+def solvesodoku(grid):
+    if (not findemptylocation(grid, l)):
+        return True
+    
+    row = l[0]
+    col = l[1]
+
+    for num in range(1, 10):
+        if (check_if_number_fits(grid, num, row, col)):
+            
+            grid[row][col] = num
+
+            if(solvesodoku(grid)):
+                return True
+
+            grid[row][col] = 0
+
+    return False           
