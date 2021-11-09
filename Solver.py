@@ -40,8 +40,6 @@ def check_if_number_fits(grid, num, row, col):
             and not check_if_number_in_row(grid, row, num)
             and not check_if_number_in_column(grid,col,num))
 
-#print(check_if_number_fits(grid,num,row,col))
-#print([print(i) for i in range(9)])
 
 def solvesodoku(grid):
 
